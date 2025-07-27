@@ -2,7 +2,6 @@
 
 from app.chroma_utils import collection
 import json
-from app.embeddings import get_embedding
 
 with open('data/posts_data.json', 'r') as file:
     docs = json.load(file)
