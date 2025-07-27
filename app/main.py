@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from app.recommender import recommend_for_user
-from app.embeddings import get_embedding
+from app.recommender import recommend_for_user, search_by_text
 
 app = FastAPI()
 
@@ -23,5 +22,4 @@ def get_recommendations(input: UserRequest):
 
 @app.post("/search")
 def search_content(input: SearchRequest):
-    from app.recommender import search_by_text
     return search_by_text(input.query, top_k=input.top_k)
